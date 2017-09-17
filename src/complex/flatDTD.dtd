@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT flat (address, rooms, owner, author)>
+   <!ATTLIST flat video ENTITY #REQUIRED>
+   <!ATTLIST address flat ID #REQUIRED>
+   <!ENTITY % address "(street, house)">
+   <!ELEMENT address (%address;)>     
+         <!ELEMENT street (#PCDATA)>
+         <!ELEMENT house (#PCDATA)>
+   <!ELEMENT rooms (room+)>
+      <!ATTLIST room roomType (Ванная|Гостинная|Кухонка|Спальня|Прочее|ТуалетО_О) "Прочее">
+      <!ELEMENT room (#PCDATA|area|width|height|length)>
+         <!ELEMENT area (#PCDATA)>
+         <!ELEMENT width (#PCDATA)>
+         <!ELEMENT height (#PCDATA)>
+         <!ELEMENT length (#PCDATA)>
+   <!ELEMENT owner (firstName, lastName, ownerAddress)>
+      <!ATTLIST ownerAddress flat IDREF #REQUIRED>
+      <!ATTLIST owner photo ENTITY #REQUIRED>
+      <!ELEMENT firstName (#PCDATA)>
+      <!ELEMENT lastName (#PCDATA)>
+      <!ELEMENT ownerAddress (%address;)>
+   <!ELEMENT author (#PCDATA)>
+   
+<!ENTITY test "Test!">
+
+<!ENTITY photoFile SYSTEM "/img.gif" NDATA GIF>
+<!NOTATION GIF SYSTEM "gif viwer">
+
+<!ENTITY videoFile SYSTEM "/video.wmv" NDATA WMV>
+<!NOTATION WMV SYSTEM "C:\Program Files\Windows Media Player\wmplayer.exe">

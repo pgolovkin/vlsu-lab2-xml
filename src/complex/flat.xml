@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE flat SYSTEM "flatDTD.dtd">
+<flat video = "videoFile">
+   <address flat = "кв.47">
+      <street>
+         Ул. П. Осипенко
+      </street>
+      <house>
+         дом 14/43
+      </house>
+   </address>
+   <rooms>
+      <room roomType="Ванная">
+         <area>
+             23
+         </area>
+         <width>
+             12
+         </width>
+         <height>
+             23
+         </height>
+         <length>
+             33
+         </length>
+      </room>
+      <room>
+         хороша комнатка
+      </room>
+   </rooms>   
+   <owner photo = "photoFile">
+      <firstName>
+         Головкин
+      </firstName>
+      <lastName>
+         Павел
+      </lastName>
+      <ownerAddress flat = "кв.47">
+         <street>
+            ул. П. Осипенко
+         </street>
+         <house>
+            дом 14/43
+         </house>
+      </ownerAddress>
+   </owner>
+   <author>
+      &test;
+   </author>
+</flat>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:pigFarm xmlns:tns="http://pashilka/pigs" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pashilka/pigs pigs.xsd ">
+  <tns:physicalOwner>
+    <tns:ownerName>Пашка</tns:ownerName>
+    <tns:address xsi:type="tns:legalAddress">
+    	<tns:country>Россия</tns:country>
+    	<tns:house>14/43</tns:house>
+    	<tns:town>Владимир</tns:town>
+    </tns:address>
+    <tns:ownerInn>3434333343</tns:ownerInn>
+    <tns:ownerEMail>pashilka@gmail.com</tns:ownerEMail>
+    <tns:bankBill/>
+    <tns:phone>34344455 8206248137</tns:phone>
+    <tns:recvisit>1704</tns:recvisit>
+  </tns:physicalOwner>
+  <tns:pig pigNumber="1" pigHouseNumber="1">
+    <tns:age>3</tns:age>
+    <tns:weight>
+      <tns:amount>4</tns:amount>
+      <tns:unit>Киолграммы</tns:unit>
+    </tns:weight>
+  </tns:pig>
+  
+  <tns:pig pigNumber="2" pigHouseNumber="2">
+    <tns:age>3</tns:age>
+    <tns:weight>
+      <tns:amount>4</tns:amount>
+      <tns:unit>Киолграммы</tns:unit>
+    </tns:weight>
+  </tns:pig>
+  
+  <tns:pig pigNumber="1024" pigHouseNumber="3">
+    <tns:age>3</tns:age>
+    <tns:weight>
+      <tns:amount>4</tns:amount>
+      <tns:unit>Киолграммы</tns:unit>
+    </tns:weight>
+  </tns:pig>
+  
+  <tns:pigHouse pigHouseNumber="1">
+  	<tns:pigHouseName>Домик Хрюшки</tns:pigHouseName>
+  </tns:pigHouse>
+  
+  <tns:pigHouse pigHouseNumber="2">
+  	<tns:pigHouseName>Домик Хрюшки Васи</tns:pigHouseName>
+  </tns:pigHouse>
+  
+  <tns:pigHouse pigHouseNumber="3">
+  	<tns:pigHouseName>Домик Хрюшки Фроси</tns:pigHouseName>
+  </tns:pigHouse>
+</tns:pigFarm>

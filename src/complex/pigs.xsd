@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://pashilka/pigs" xmlns:tns="http://pashilka/pigs" elementFormDefault="qualified">
+	<element name="pigFarm">
+		<complexType>
+			<sequence>
+				<choice>
+					<element name = "owner" type="tns:owner" maxOccurs="1" minOccurs="1"/>
+					<element name = "physicalOwner" type="tns:physicalOwner" minOccurs="1" maxOccurs="1"/>
+ 				</choice>
+				<element name = "pig" type="tns:pig" minOccurs="1" maxOccurs="unbounded"/>
+				<element name = "pigHouse" type="tns:pigHouse" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence> 
+		</complexType>
+		<unique name="uniquePigNumber">
+			<selector xpath="tns:pig"/>
+			<field xpath="@pigNumber"/>
+		</unique>
+		<unique name="uniquePigHouseNumber">
+			<selector xpath="tns:pigHouse"/>
+			<field xpath="@pigHouseNumber"/>
+		</unique>
+		<key name="pigHouseKey">
+			<selector xpath="tns:pigHouse"/>
+			<field xpath="@pigHouseNumber"/>
+		</key>
+		<keyref name="pigHouseRef" refer="tns:pigHouseKey">
+			<selector xpath="tns:pig"/>
+			<field xpath="@pigHouseNumber"/>
+		</keyref>
+	</element>
+	
+	<complexType name="owner">
+		<sequence>
+			<element name = "ownerName" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name = "address" type="tns:address" minOccurs="1" maxOccurs="1"/>
+			<element name = "ownerInn" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name = "ownerEMail" type="string" minOccurs="1" maxOccurs="1" />
+			<element name = "bankBill" type="integer" minOccurs="1" maxOccurs="1"/>
+			<element name = "phone" type="tns:phone" minOccurs="1" maxOccurs="1"/>
+			<element name = "recvisit" type="tns:recvisit" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="physicalOwner">
+		<complexContent>
+			<restriction base="tns:owner">
+				<sequence>
+					<element name = "ownerName" type="string" minOccurs="1" maxOccurs="1"/>
+					<element name = "address" type="tns:address" minOccurs="1" maxOccurs="1"/>
+					<element name = "ownerInn" type="string" minOccurs="1" maxOccurs="1"/>
+					<element name = "ownerEMail" type="string" minOccurs="1" maxOccurs="1" />
+					<element name = "bankBill" type="integer" minOccurs="1" maxOccurs="1" fixed="333222112233"/>					
+					<element name = "phone" type="tns:phone" minOccurs="1" maxOccurs="1"/>
+					<element name = "recvisit" type="tns:recvisit" minOccurs="1" maxOccurs="1"/>
+				</sequence>
+			</restriction>
+		</complexContent>
+	</complexType>
+		
+	<simpleType name="phone">
+		<list itemType="integer"/>
+	</simpleType>
+	
+	<simpleType name="passportNumber">
+		<restriction base="unsignedInt">
+			<minInclusive value="1111"/>
+			<maxInclusive value="9999"/>
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="enterpriseNumber">
+		<restriction base="unsignedInt">
+			<maxInclusive value="999999999"/>
+			<minInclusive value="111111111"></minInclusive>
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="recvisit">
+		<union memberTypes="tns:passportNumber tns:enterpriseNumber"/>
+	</simpleType>
+	
+	<complexType name="address" abstract="true"/>
+	<complexType name="physicalAddress">
+		<complexContent>
+			<extension base="tns:address">
+				<sequence>
+					<element name = "house" type="string" minOccurs="1" maxOccurs="1"/>
+					<element name = "flat" type="unsignedInt" minOccurs="1" maxOccurs="1"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="legalAddress">
+		<complexContent>
+			<extension base="tns:address">
+				<all>
+					<element name = "country" type="string" minOccurs="1" maxOccurs="1"/>
+					<element name = "town" type="string" minOccurs="1" maxOccurs="1"/>
+					<element name = "house" type="string" minOccurs="1" maxOccurs="1"/>
+				</all>
+			</extension>		
+		</complexContent>
+	</complexType>
+	
+	
+	<complexType name="pig" mixed="true">
+		<sequence>			
+			<element name = "age" type="unsignedInt" minOccurs="1" maxOccurs="1"/>
+			<element name = "weight" type="tns:weight" minOccurs="1" maxOccurs="1"/>	
+		</sequence>
+		<attribute name="pigNumber" type="unsignedInt"/>
+		<attribute name = "pigHouseNumber" type="unsignedInt"/>
+	</complexType>
+	
+	<complexType name="weight">
+		<sequence>
+			<element name = "amount" type="tns:amount" minOccurs="1" maxOccurs="1" />
+			<element name = "unit" minOccurs="1" maxOccurs="1">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="Киолграммы"/>
+						<enumeration value="Центнеры"/>
+						<enumeration value="Фунты"/>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+	
+	<complexType name = "pigHouse">
+		<sequence>
+			<element name = "pigHouseName" type="string" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+		<attribute name = "pigHouseNumber" type="positiveInteger"/>
+	</complexType>
+	
+	<simpleType name="amount">
+		<restriction base="unsignedInt">
+			<minInclusive value="1"></minInclusive>			
+		</restriction>
+	</simpleType>
+</schema>
