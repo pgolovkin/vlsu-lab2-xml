@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE student SYSTEM "lab2.dtd">
+<student number="first" group="ИСТм-117">
+<firstname>Иванов</firstname>
+<lastname>Иван</lastname>
+<department>ФИТ</department>
+</student>

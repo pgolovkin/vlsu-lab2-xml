@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT student (firstname, lastname, department)>
+    <!ATTLIST student number ID #REQUIRED>
+    <!ATTLIST student group (ИСТм-117|ПРИм-117) #REQUIRED>
+    <!ELEMENT firstname (#PCDATA)>
+    <!ELEMENT lastname (#PCDATA)>
+    <!ELEMENT department (#PCDATA)>
