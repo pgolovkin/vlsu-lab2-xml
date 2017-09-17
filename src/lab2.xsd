@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="student" type="studentType"/>
+  <xs:complexType name="studentType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="firstname"/>
+      <xs:element type="xs:string" name="lastname"/>
+      <xs:element type="xs:string" name="department"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="number"/>
+    <xs:attribute type="groupType" name="group"/>
+  </xs:complexType>
+
+  <xs:simpleType name="groupType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ИСТм-117"/>
+      <xs:enumeration value="ПРИм-117"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
